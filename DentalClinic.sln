@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentalClinic", "DentalClinic\DentalClinic.csproj", "{C0DC9D4D-9874-446A-ABA9-9AE404832A18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentalClinicAPI", "DentalClinic\DentalClinicAPI.csproj", "{C0DC9D4D-9874-446A-ABA9-9AE404832A18}"
 	ProjectSection(ProjectDependencies) = postProject
 		{64C91CEF-112B-4B13-8A48-5F0D929C7EAF} = {64C91CEF-112B-4B13-8A48-5F0D929C7EAF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinicBLL", "DentalClinicBLL\DentalClinicBLL.csproj", "{64C91CEF-112B-4B13-8A48-5F0D929C7EAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentalClinicBLL", "DentalClinicBLL\DentalClinicBLL.csproj", "{64C91CEF-112B-4B13-8A48-5F0D929C7EAF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{16BDB40D-3EA6-4395-A21C-FEA1432082CF} = {16BDB40D-3EA6-4395-A21C-FEA1432082CF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalClinicDAL", "DentalClinicDAL\DentalClinicDAL.csproj", "{16BDB40D-3EA6-4395-A21C-FEA1432082CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentalClinicDAL", "DentalClinicDAL\DentalClinicDAL.csproj", "{16BDB40D-3EA6-4395-A21C-FEA1432082CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
