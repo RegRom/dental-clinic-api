@@ -20,5 +20,8 @@ namespace DentalClinicDAL.Entities
 
         [Required]
         public Patient Patient { get; set; }
+
+        [Required]
+        public Procedure Procedure { get; set; }
     }
 }

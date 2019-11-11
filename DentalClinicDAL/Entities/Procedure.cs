@@ -19,6 +19,7 @@ namespace DentalClinicDAL.Entities
         public string Description { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,4)")]
         public decimal Cost { get; set; }
     }
 }
