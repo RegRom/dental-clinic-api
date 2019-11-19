@@ -26,6 +26,9 @@ namespace DentalClinicBLL.Repositories
         public async Task<AppointmentDto> GetAsync(int id)
         {
             var appointment = await _dentalClinicContext.Appointments
+                .Include(a => a.Dentist)
+                .Include(a => a.Patient)
+                .Include(a => a.Procedure)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (appointment == null)
@@ -38,7 +41,11 @@ namespace DentalClinicBLL.Repositories
 
         public async Task<IEnumerable<AppointmentDto>> GetAllAsync()
         {
-            var appointmentList = await _dentalClinicContext.Appointments.AsNoTracking().ToListAsync();
+            var appointmentList = await _dentalClinicContext.Appointments
+                .Include(a => a.Dentist)
+                .Include(a => a.Patient)
+                .Include(a => a.Procedure)
+                .AsNoTracking().ToListAsync();
 
             return _mapper.Map<IEnumerable<AppointmentDto>>(appointmentList);
         }
@@ -46,6 +53,9 @@ namespace DentalClinicBLL.Repositories
         public async Task<int> UpdateAsync(AppointmentDto appointmentDto)
         {
             var appointment = await _dentalClinicContext.Appointments
+                .Include(a => a.Dentist)
+                .Include(a => a.Patient)
+                .Include(a => a.Procedure)
                 .FirstOrDefaultAsync(p => p.Id == appointmentDto.Id);
 
             if (appointment == null)

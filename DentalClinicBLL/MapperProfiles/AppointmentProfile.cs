@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using DentalClinicBLL.Models;
 using DentalClinicDAL.Entities;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace DentalClinicBLL.MapperProfiles
 {
@@ -19,7 +22,8 @@ namespace DentalClinicBLL.MapperProfiles
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Dentist, opt => opt.Ignore())
                 .ForMember(x => x.Patient, opt => opt.Ignore())
-                .ForMember(x => x.Procedure, opt => opt.Ignore());
+                .ForMember(x => x.Procedure, opt => opt.Ignore())
+                .ForMember(x => x.Date, opt => opt.MapFrom(src => DateTime.ParseExact(src.Date, "yyyy-MM-dd HH:mm", null)));
             CreateMap<Appointment, Appointment>();
             CreateMap<AppointmentDto, AppointmentDto>();
         }
