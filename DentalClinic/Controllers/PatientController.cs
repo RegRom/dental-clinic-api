@@ -7,7 +7,7 @@ using DentalClinicBLL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DentalClinic.Controllers
+namespace DentalClinicAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

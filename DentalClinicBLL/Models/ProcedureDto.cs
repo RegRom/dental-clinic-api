@@ -12,6 +12,6 @@ namespace DentalClinicBLL.Models
 
         public string Description { get; set; }
 
-        public decimal Cost { get; set; }
+        public string Cost { get; set; }
     }
 }
