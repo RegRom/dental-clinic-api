@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DentalClinicBLL.Models
+﻿namespace DentalClinicBLL.Models
 {
     public class AppointmentDto
     {

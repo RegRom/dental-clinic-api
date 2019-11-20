@@ -1,8 +1,6 @@
-﻿using System;
+﻿using DentalClinicBLL.Models;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using DentalClinicBLL.Models;
 
 namespace DentalClinicBLL.Interfaces
 {

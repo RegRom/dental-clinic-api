@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DentalClinicBLL.Interfaces;
+﻿using DentalClinicBLL.Interfaces;
 using DentalClinicBLL.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

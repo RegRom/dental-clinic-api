@@ -1,21 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using DentalClinicBLL.MapperProfiles;
 using DentalClinicBLL.Services;
 using DentalClinicDAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 
 namespace DentalClinicAPI
 {
@@ -41,21 +34,20 @@ namespace DentalClinicAPI
             services.AddAutoMapper(typeof(PatientProfile).Assembly);
             services.AddAutoMapper(typeof(ProcedureProfile).Assembly);
 
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info
-            //    {
-            //        Version = "v1",
-            //        Title = "Dental Clinic API",
-            //        Description = "Web API for an application developed for Dental Clinic",
-            //        TermsOfService = "None",
-            //        Contact = new Contact()
-            //        {
-            //            Name = "Romeo Rego",
-            //            Email = "235005@student.pwr.edu.pl"
-            //        }
-            //    });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Dental Clinic API",
+                    Description = "Web API for an application developed for Dental Clinic",
+                    Contact = new OpenApiContact()
+                    {
+                        Name = "Romeo Rego",
+                        Email = "235005@student.pwr.edu.pl"
+                    }
+                });
+            });
 
             services.AddCors(options =>
                 options.AddDefaultPolicy(
@@ -100,11 +92,11 @@ namespace DentalClinicAPI
                 endpoints.MapControllers();
             });
 
-            //app.UseSwagger();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dental Clinic API V1"); 
-            //});
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dental Clinic API V1");
+            });
 
             app.UseCors();
 

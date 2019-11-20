@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
-using AutoMapper;
+﻿using AutoMapper;
 using DentalClinicBLL.Models;
 using DentalClinicDAL.Entities;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System;
 
 namespace DentalClinicBLL.MapperProfiles
 {
