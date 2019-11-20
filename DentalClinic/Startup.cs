@@ -1,4 +1,5 @@
 using AutoMapper;
+using DentalClinicBLL.Constants;
 using DentalClinicBLL.MapperProfiles;
 using DentalClinicBLL.Services;
 using DentalClinicDAL;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace DentalClinicAPI
 {
@@ -40,7 +42,11 @@ namespace DentalClinicAPI
                 {
                     Version = "v1",
                     Title = "Dental Clinic API",
-                    Description = "Web API for an application developed for Dental Clinic",
+                    Description = "Web API for an application developed for Dental Clinic. Consists of four endpoints:\n" +
+                                  $"1. {new Uri(Endpoints.Procedure).AbsoluteUri}\n" +
+                                  $"2. {new Uri(Endpoints.Dentist).AbsoluteUri}\n" +
+                                  $"3. {new Uri(Endpoints.Patient).AbsoluteUri}\n" +
+                                  $"4. {new Uri(Endpoints.Appointment).AbsoluteUri}\n",
                     Contact = new OpenApiContact()
                     {
                         Name = "Romeo Rego",
