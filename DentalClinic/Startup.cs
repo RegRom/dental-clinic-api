@@ -29,20 +29,24 @@ namespace DentalClinicAPI
             services.AddDbContext<DentalClinicContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
 
+            //Wywo³anie metody dodaj¹cej utworzone serwisy
             services.AddRouteServices();
 
+            //Dodanie do konfiguracji Profili AutoMappera, by mo¿liwe by³o mapowanie
             services.AddAutoMapper(typeof(AppointmentProfile).Assembly);
             services.AddAutoMapper(typeof(DentistProfile).Assembly);
             services.AddAutoMapper(typeof(PatientProfile).Assembly);
             services.AddAutoMapper(typeof(ProcedureProfile).Assembly);
 
+            //Konfiguracja dokumentacji generowanej przez bibliotekê Swagger.
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "Dental Clinic API",
-                    Description = "Web API for an application developed for Dental Clinic. Consists of four endpoints:\n" +
+                    Description = "Web API for an application developed for Dental Clinic. " +
+                                  "Consists of four endpoints:\n" +
                                   $"1. {new Uri(Endpoints.Procedure).AbsoluteUri}\n" +
                                   $"2. {new Uri(Endpoints.Dentist).AbsoluteUri}\n" +
                                   $"3. {new Uri(Endpoints.Patient).AbsoluteUri}\n" +
@@ -55,6 +59,7 @@ namespace DentalClinicAPI
                 });
             });
 
+            //Konfiguracja Cross-Origin Resource Sharing
             services.AddCors(options =>
                 options.AddDefaultPolicy(
                     builder =>
@@ -91,6 +96,8 @@ namespace DentalClinicAPI
 
             app.UseRouting();
 
+            app.UseCors();
+
             //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -103,8 +110,6 @@ namespace DentalClinicAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dental Clinic API V1");
             });
-
-            app.UseCors();
 
             dentalClinicContext.Database.Migrate();
         }
