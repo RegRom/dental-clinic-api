@@ -1,5 +1,6 @@
 ﻿using DentalClinicBLL.Interfaces;
 using DentalClinicBLL.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ namespace DentalClinicAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class ProcedureController : ControllerBase
     {
         private readonly IProcedureRepository _procedureRepository;
