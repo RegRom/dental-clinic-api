@@ -12,7 +12,8 @@ namespace DentalClinicBLL.MapperProfiles
             CreateMap<Appointment, AppointmentDto>()
                 .ForMember(dest => dest.DentistId, opt => opt.MapFrom(src => src.Dentist.Id))
                 .ForMember(dest => dest.PatientId, opt => opt.MapFrom(src => src.Patient.Id))
-                .ForMember(dest => dest.ProcedureId, opt => opt.MapFrom(src => src.Procedure.Id));
+                .ForMember(dest => dest.ProcedureId, opt => opt.MapFrom(src => src.Procedure.Id))
+                .ForMember(x => x.Date, opt => opt.MapFrom(src => src.Date.ToString("yyyy-MM-dd HH:mm")));
             CreateMap<AppointmentDto, Appointment>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Dentist, opt => opt.Ignore())
